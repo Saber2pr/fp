@@ -13,17 +13,29 @@ git clone https://github.com/Saber2pr/fp.git
 # API
 
 compose
+
 pipe
+
 setter
+
 intercept
+
 async_reduce
+
 async_reduceRight
+
 async_compose
+
 async_pipe
+
 async_setter
+
 async_forEach
+
 async_filter
+
 async_intercept
+
 async_forEach
 
 ---
