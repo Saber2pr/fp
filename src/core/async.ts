@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-06-19 20:28:08
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-06-19 22:29:38
+ * @Last Modified time: 2019-06-19 22:49:40
  */
 export const async_reduce = async <T, R>(
   items: T[],
@@ -37,7 +37,7 @@ export const async_setter = async <T, K extends keyof T>(
   Object.assign(
     {},
     target,
-    ...(await Promise.all(props.map(async ([k, v]) => ({ [k]: await v }))))
+    ...(await async_map(props, async ([k, v]) => ({ [k]: await v })))
   )
 
 export const async_forEach = <T, R = void>(
@@ -56,15 +56,11 @@ export const async_filter = async <T>(
   return next
 }
 
-export const async_intercept = <T>(interceptor: (value: T) => Promise<T>) => (
-  value: T
-) => interceptor(value)
-
-export const async_map = async <T>(
+export const async_map = async <T, R>(
   items: T[],
-  callbackFn: (value: T, index: number, array: T[]) => Promise<T>
+  callbackFn: (value: T, index: number, array: T[]) => Promise<R>
 ) => {
-  const next: T[] = []
+  const next: R[] = []
 
   await async_forEach(items, async (value, index, array) => {
     next.push(await callbackFn(value, index, array))
