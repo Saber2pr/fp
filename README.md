@@ -7,7 +7,7 @@
 npm install @saber2pr/fp
 
 # from github
-git clone ___
+git clone https://github.com/Saber2pr/fp.git
 ```
 
 # API

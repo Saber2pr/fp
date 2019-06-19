@@ -1,10 +1,10 @@
 {
   "name": "@saber2pr/fp",
   "version": "0.0.1",
-  "description": "__",
+  "description": "> functional programing in async & sync.",
   "repository": {
     "type": "git",
-    "url": "git+___"
+    "url": "git+https://github.com/Saber2pr/fp.git"
   },
   "author": "saber2pr",
   "license": "ISC",
