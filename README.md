@@ -36,7 +36,7 @@ async_filter
 
 async_intercept
 
-async_forEach
+async_map
 
 ---
 
