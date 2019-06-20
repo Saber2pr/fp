@@ -5,9 +5,10 @@
     "declaration": true,
     "outDir": "./lib",
     "esModuleInterop": true,
+    "downlevelIteration": true,
     "lib": [
-     "dom",
-     "es2015"
+      "dom",
+      "es2015"
     ]
   },
   "include": ["src", "jest.config.js"],
