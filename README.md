@@ -25,9 +25,9 @@ const contents = await Promise.all(
 )
 ```
 
-then you get a bad result, the `content.content1` and `content.content2` is a Promise
+then you get a bad result, the `contents.content1` and `contents.content2` is a Promise
 
-#### how to deal with it?
+#### How to deal with it?
 
 Now, there is a function named `async_map` to it:
 
@@ -38,9 +38,9 @@ const contents = async_map(['./1.txt', './2.txt'], async file_name => ({
 }))
 ```
 
-you will get a result and the `content.content1` and `content.content2` is the correct type: string.
+you will get a result and the `contents.content1` and `contents.content2` is the correct type "string".
 
-Beside the `async_map`, there is a lot of async functions in this package!
+what's more...
 
 # API
 
