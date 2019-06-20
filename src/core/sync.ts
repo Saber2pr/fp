@@ -1,16 +1,27 @@
 /*
  * @Author: saber2pr
- * @Date: 2019-06-19 20:26:39
+ * @Date: 2019-06-20 10:32:59
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-06-19 22:49:43
+ * @Last Modified time: 2019-06-20 10:47:04
  */
-export const compose = <T>(...fns: ((value: T) => T)[]) => (value: T) =>
-  fns.reduceRight((a, b) => b(a), value)
+import { from } from './lazy'
 
 export const pipe = <T>(...fns: ((value: T) => T)[]) => (value: T) =>
-  fns.reduce((a, b) => b(a), value)
+  from(fns)
+    .reduce((a, b) => b(a), value)
+    .to()[0]
+
+export const compose = <T>(...fns: ((value: T) => T)[]) => (value: T) =>
+  pipe(...fns.reverse())(value)
 
 export const setter = <T, K extends keyof T>(
   target: T,
   ...props: [K, T[K]][]
-): T => Object.assign({}, target, ...props.map(([k, v]) => ({ [k]: v })))
+): T =>
+  Object.assign(
+    {},
+    target,
+    ...from(props)
+      .map(([k, v]) => ({ [k]: v }))
+      .to()
+  )
