@@ -49,3 +49,11 @@ export const isInfixOf = <T>(as: T[]) => (xs: T[]) =>
   xs.toString().includes(as.toString())
 export const isSuffixOf = <T>(as: T[]) => (xs: T[]) =>
   xs.toString().endsWith(as.toString())
+export const zip = <A extends PropertyKey, B extends PropertyKey>(as: A[]) => (
+  bs: B[]
+) =>
+  as.reduce<any>(
+    (receiver, x, i) =>
+      bs[i] ? Object.assign(receiver, { [x]: bs[i] }) : receiver,
+    {}
+  )
