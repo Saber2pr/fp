@@ -1,6 +1,6 @@
 {
   "name": "@saber2pr/fp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "> functional programing in async & sync.",
   "repository": {
     "type": "git",
@@ -10,6 +10,7 @@
   "license": "ISC",
   "files": [
     "lib/core/*",
+    "lib/list/*",
     "lib/index.*"
   ],
   "main": "./lib/index.js",

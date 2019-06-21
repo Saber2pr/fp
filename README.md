@@ -50,8 +50,6 @@ pipe
 
 setter
 
-intercept
-
 async_reduce
 
 async_reduceRight
