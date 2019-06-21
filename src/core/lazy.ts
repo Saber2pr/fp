@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-06-20 09:31:15
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-06-20 10:31:13
+ * @Last Modified time: 2019-06-21 16:05:53
  */
 export function range(end: number): IterableIterator<number>
 export function range(start: number, end: number): IterableIterator<number>
