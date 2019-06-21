@@ -29,7 +29,8 @@ import {
   isInfixOf,
   isSuffixOf,
   last,
-  or
+  or,
+  zip
 } from '../list'
 import { compose } from '../core'
 
@@ -190,9 +191,19 @@ describe('list', () => {
     expect(isSuffixOf([2, 3])([0, 1, 2, 3])).toEqual(true)
   })
 
+  it('zip', () => {
+    expect(zip([1, 2])([10, 20])).toEqual({ 1: 10, 2: 20 })
+    expect(zip([1, 2])(['a', 'b'])).toEqual({ 1: 'a', 2: 'b' })
+    expect(zip([1, 2])(['a', 'b', 'c'])).toEqual({ 1: 'a', 2: 'b' })
+    expect(zip([1, 2, 3])(['a', 'b'])).toEqual({ 1: 'a', 2: 'b' })
+    expect(zip(['a', 'b'])([1, 2])).toEqual({ a: 1, b: 2 })
+    expect(zip(['a', 'b'])([1, 2, 3])).toEqual({ a: 1, b: 2 })
+    expect(zip(['a', 'b', 'c'])([1, 2])).toEqual({ a: 1, b: 2 })
+  })
+
   it('compose test', () => {
     expect(
-      compose<any>(
+      compose(
         map(x => ({ name: x })),
         filter(x => x !== 'b'),
         lines
@@ -209,7 +220,7 @@ describe('list', () => {
 
   it('compose test', () => {
     expect(
-      compose<any>(
+      compose(
         map(x => ({ name: x })),
         filter(x => x !== 'b'),
         lines
