@@ -155,3 +155,6 @@ export const setter = <T, K extends keyof T>(
       .map(([k, v]) => ({ [k]: v }))
       .to()
   )
+
+export const zips = <A extends PropertyKey>(as: A[], ...bs: any[][]) =>
+  as.reduce((receiver, x, i) => [...receiver, [x, ...bs.map(b => b[i])]], [])
